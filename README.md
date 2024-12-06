@@ -41,3 +41,7 @@ Generate custom geosite and geoip based on [Loyalsoldier](https://github.com/Loy
   - `geoip:telegram`
   - `geoip:twitter`
   - `geoip:malicious`
+  - `geoip:firewall`
+  - `geoip:geoid`
+  - `geoip:doh`
+  - `geoip:tor`
