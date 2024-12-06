@@ -1,17 +1,29 @@
 name: Build V2Ray rules dat files
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 22 * * *"
   push:
     branches:
       - master
     paths-ignore:
       - "**/README.md"
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Go 1.x.y
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.20'
+          check-latest: true
+      
+      - name: Set timezone to WIB Jakarta
+        uses: szenius/set-timezone@v1.2
+        with:
+          timezoneLinux: "Asia/Jakarta"
+          timezoneMacos: "Asia/Jakarta"
+          timezoneWindows: "Indonesia Standard Time"
+
       - name: Set variables
         run: |
           echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
@@ -28,6 +40,25 @@ jobs:
           echo "WIN_SPY=https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt" >> $GITHUB_ENV
           echo "WIN_UPDATE=https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update.txt" >> $GITHUB_ENV
           echo "WIN_EXTRA=https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra.txt" >> $GITHUB_ENV
+          echo "OISD_FULL=https://big.oisd.nl/dnsmasq" >> $GITHUB_ENV
+          echo "OISD_SMALL=https://small.oisd.nl/dnsmasq" >> $GITHUB_ENV
+          echo "OISD_NSFW=https://nsfw.oisd.nl/dnsmasq" >> $GITHUB_ENV
+          echo "ANTISCAM=https://raw.githubusercontent.com/elliotwutingfeng/GlobalAntiScamOrg-blocklist/main/global-anti-scam-org-scam-urls-pihole.txt" >> $GITHUB_ENV
+          echo "DOH_DNS=https://raw.githubusercontent.com/malikshi/dns_ip/main/domains-doh.txt" >> $GITHUB_ENV
+          echo "RULE_ADS=https://raw.githubusercontent.com/d3ward/toolz/master/src/d3host.txt" >> $GITHUB_ENV
+          echo "RULE_ADS_EXTENDED=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_ads.txt" >> $GITHUB_ENV
+          echo "RULE_GAME=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_gaming.txt" >> $GITHUB_ENV
+          echo "RULE_INDO=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_indo.txt" >> $GITHUB_ENV
+          echo "RULE_PS=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_playstore.txt" >> $GITHUB_ENV
+          echo "RULE_SOSMED=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_sosmed.txt" >> $GITHUB_ENV
+          echo "RULE_STREAMING=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_streaming.txt" >> $GITHUB_ENV
+          echo "RULE_UMUM=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_umum.txt" >> $GITHUB_ENV
+          echo "RULE_IPCHECK=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_ipcheck.txt" >> $GITHUB_ENV
+          echo "RULE_VIDCONFERENCE=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule-videoconference.txt" >> $GITHUB_ENV
+          echo "URLTEST=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/urltest.txt" >> $GITHUB_ENV
+          echo "RULE_SPEEDTEST=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_speedtest.txt" >> $GITHUB_ENV
+          echo "MALICIOUS_HOST=https://raw.githubusercontent.com/elliotwutingfeng/Inversion-DNSBL-Blocklists/main/Google_hostnames_light.txt" >> $GITHUB_ENV
+          echo "RULE_BANK_ID=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_bank-id.txt" >> $GITHUB_ENV
         shell: bash
 
       - name: Checkout the "hidden" branch of this repo
@@ -61,8 +92,8 @@ jobs:
 
       - name: Get geoip.dat relative files
         run: |
-          wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat
-          wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat.sha256sum
+          wget https://github.com/malikshi/geoip/raw/release/geoip.dat
+          wget https://github.com/malikshi/geoip/raw/release/geoip.dat.sha256sum
 
       - name: Generate GFWList domains
         run: |
@@ -163,6 +194,63 @@ jobs:
           curl -sSL $WIN_UPDATE | grep "0.0.0.0" | awk '{print $2}' > win-update.txt
           curl -sSL $WIN_EXTRA | grep "0.0.0.0" | awk '{print $2}' > ./community/data/win-extra
           curl -sSL $WIN_EXTRA | grep "0.0.0.0" | awk '{print $2}' > win-extra.txt
+          curl -sSL $OISD_FULL | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > ./community/data/oisd-full
+          curl -sSL $OISD_FULL | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > oisd-full.txt
+          curl -sSL $OISD_SMALL | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > ./community/data/oisd-small
+          curl -sSL $OISD_SMALL | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > oisd-small.txt
+          curl -sSL $RULE_ADS | grep "0.0.0.0" | awk '{print $2}' > ./community/data/rule-ads
+          curl -sSL $RULE_ADS_EXTENDED >> ./community/data/rule-ads
+          curl -sSL $RULE_ADS | grep "0.0.0.0" | awk '{print $2}' > rule-ads.txt
+          curl -sSL $RULE_ADS_EXTENDED >> rule-ads.txt
+          curl -sSL $OISD_NSFW | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > ./community/data/oisd-nsfw
+          curl -sSL $OISD_NSFW | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > oisd-nsfw.txt
+          wget -O ./community/data/antiscam $ANTISCAM
+          wget -O antiscam.txt $ANTISCAM
+          wget -O ./community/data/rule-doh $DOH_DNS
+          wget -O rule-doh.txt $DOH_DNS
+          wget -O ./community/data/rule-gaming $RULE_GAME
+          wget -O rule-gaming.txt $RULE_GAME
+          wget -O ./community/data/rule-indo $RULE_INDO
+          wget -O rule-indo.txt $RULE_INDO
+          wget -O ./community/data/rule-playstore $RULE_PS
+          wget -O rule-playstore.txt $RULE_PS
+          wget -O ./community/data/rule-sosmed $RULE_SOSMED
+          wget -O rule-sosmed.txt $RULE_SOSMED
+          wget -O ./community/data/rule-streaming $RULE_STREAMING
+          wget -O rule-streaming.txt $RULE_STREAMING
+          wget -O ./community/data/rule-umum $RULE_UMUM
+          wget -O rule-umum.txt $RULE_UMUM
+          wget -O ./community/data/rule-ipcheck $RULE_IPCHECK
+          wget -O rule-ipcheck.txt $RULE_IPCHECK
+          wget -O ./community/data/videoconference $RULE_VIDCONFERENCE
+          wget -O videoconference.txt $RULE_VIDCONFERENCE
+          wget -O ./community/data/urltest $URLTEST
+          wget -O urltest.txt $URLTEST
+          wget -O ./community/data/rule-speedtest $RULE_SPEEDTEST
+          wget -O rule-speedtest.txt $RULE_SPEEDTEST
+          wget -O ./community/data/rule-malicious $MALICIOUS_HOST
+          wget -O rule-malicious.txt $MALICIOUS_HOST
+          wget -O ./community/data/bank-id $RULE_BANK_ID
+          wget -O bank-id.txt $RULE_BANK_ID
+
+      - name: Filter and save d3ward.txt
+        run: |
+          python <<EOF
+          import requests
+
+          # Fetch the contents of the file from the URL
+          url = "https://raw.githubusercontent.com/d3ward/toolz/master/src/d3host.txt"
+          response = requests.get(url)
+          data = response.text
+
+          # Filter lines with "0.0.0.0" and spaces and remove "0.0.0.0" text
+          filtered_lines = [line.replace("0.0.0.0 ", "") for line in data.split("\n") if "0.0.0.0 " in line]
+
+          # Save the filtered lines to a file named "d3ward.txt"
+          with open("./community/data/d3ward", "w") as file:
+              for line in filtered_lines:
+                  file.write(line + "\n")
+          EOF
 
       - name: Build geosite.dat file
         run: |
@@ -178,9 +266,19 @@ jobs:
           install -p {proxy,direct,reject}-list.txt ./publish/
           install -p {china-list,apple-cn,google-cn,gfw,greatfire,win-spy,win-update,win-extra}.txt ./publish/
           cd ./publish || exit 1
-          zip rules.zip {proxy,direct,reject}-list.txt geoip.dat geosite.dat
           sha256sum geosite.dat > geosite.dat.sha256sum
-          sha256sum rules.zip > rules.zip.sha256sum
+
+      - name: Convert to Sing-Box geoassets
+        run: |
+          wget https://github.com/malikshi/Notes/releases/download/v2box/v2box
+          chmod +x v2box
+          ./v2box migrate geoip -i ./publish/geoip.dat -o geoip.db
+          ./v2box migrate geosite -i ./publish/geosite.dat -o geosite.db
+          mv -f geoip.db ./publish/
+          mv -f geosite.db ./publish/
+          cd ./publish || exit 1
+          sha256sum geosite.db > geosite.db.sha256sum
+          sha256sum geoip.db > geoip.db.sha256sum
 
       - name: Release and upload assets
         uses: svenstaro/upload-release-action@v2
@@ -209,3 +307,24 @@ jobs:
           for file in $(ls); do
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/${file}"
           done
+
+      - name: Delete Old Release
+        uses: dev-drprasad/delete-older-releases@v0.2.1
+        with:
+          repo: malikshi/v2ray-rules-dat
+          keep_latest: 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger Synch sing-box-geo
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GHA_WORKFLOW_TRIGGER }}
+          script: |
+            const result = await github.rest.actions.createWorkflowDispatch({
+              owner: 'malikshi',
+              repo: 'sing-box-geo',
+              workflow_id: 'release.yaml',
+              ref: 'master'
+            })
+            console.log(result)
