@@ -43,7 +43,7 @@ jobs:
           echo "OISD_FULL=https://big.oisd.nl/dnsmasq" >> $GITHUB_ENV
           echo "OISD_SMALL=https://small.oisd.nl/dnsmasq" >> $GITHUB_ENV
           echo "OISD_NSFW=https://nsfw.oisd.nl/dnsmasq" >> $GITHUB_ENV
-          echo "ANTISCAM=https://raw.githubusercontent.com/elliotwutingfeng/GlobalAntiScamOrg-blocklist/main/global-anti-scam-org-scam-urls-pihole.txt" >> $GITHUB_ENV
+          echo "ANTISCAM=https://raw.githubusercontent.com/malikshi/antiscam/refs/heads/main/antiscam.txt" >> $GITHUB_ENV
           echo "DOH_DNS=https://raw.githubusercontent.com/malikshi/dns_ip/main/domains-doh.txt" >> $GITHUB_ENV
           echo "RULE_ADS=https://raw.githubusercontent.com/d3ward/toolz/master/src/d3host.txt" >> $GITHUB_ENV
           echo "RULE_ADS_EXTENDED=https://raw.githubusercontent.com/malikshi/v2ray-rules-dat/rule/rule_ads.txt" >> $GITHUB_ENV
