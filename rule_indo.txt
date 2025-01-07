@@ -1,3 +1,4 @@
+include:catchplay
 include:disney
 include:hbo
 include:hotstar
@@ -5,7 +6,7 @@ include:netflix
 include:spotify
 include:viu
 
-# > Beinsport
+# > Bein Sport
 beinsports.com
 beiniz.biz
 full:connect-id.beinsports.com
@@ -14,15 +15,20 @@ keyword:bein
 # > DensTV
 dens.tv
 
+# > Eraspace
+eraspace.com
+
 # > LiveTV GO
 full:livetvgo.my.id
 keyword:livetvgo
 
+# > Loklok
+loklok.plus
+
 # > MNC Now
 mncnow.id
 mncplay.id
-keyword:mncnow
-keyword:mncplay
+keyword:mnc
 
 # > Mola TV
 mola.tv
@@ -34,6 +40,14 @@ keyword:mola
 
 # > Oxygen ID
 oxygen.id
+
+# > RCTI+
+mncplus.id
+rctiplus.com
+rctiplus.id
+rcti.plus
+roov.id
+keyword:rcti
 
 # > SeulangaTV
 seulangatv.com
@@ -120,6 +134,9 @@ full:webrtcpunch.video.qq.com
 full:apd-vlive.apdcdn.tc.qq.com
 full:iflix-images.akamaized.net
 keyword:wetv
+
+# > Xiaomi TV+
+full:id.tv.global.mi.com
 
 #Philips Wiz Smart Gateway
 wiz.world

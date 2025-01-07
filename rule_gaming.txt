@@ -70,6 +70,14 @@ clashroyaleapp.com
 # > Cpmstar
 cpmstar.com
 
+# > Erolabs
+ebuajk.com
+ecchi.xxx
+ero-labs.com
+hyenadata.net
+jjaxa.co
+uquqp.net
+
 # > FIFA (Electronic Arts)
 content.easports.com
 service.easports.com
@@ -101,9 +109,32 @@ haydaygame.com
 king.com
 midasplayer.com
 
+# > Level Infinite (Tencent)
+anticheatexpert.com
+dl.listdl.com
+intlgame.com
+intlgame.cn
+gcloudcs.com
+myqcloud.com
+keyword:anticheatexpert
+keyword:gcloud
+keyword:myqcloud
+
+# > Kuro Games
+kurogames.com
+kurogame.net
+kurogame.xyz
+kurogame-service.com
+
 # > Microsoft Games
 microsoftcasualgames.com
 msgamestudios.com
+
+# > MiHoYo / Hoyoverse / Cognosphere
+hoyoverse.com
+hoyolab.com
+n0vadesktop.com
+full:hoyo.link
 
 # > Minecraft
 minecraft-services.net
@@ -120,18 +151,25 @@ mixer.com
 
 # > Netease (Additional)
 easebar.com
+easefoo.com
 neteasegames.com
+neteasegames.net
+neteasegame.com
+neteasegame.net
 keyword:easebar
 keyword:netease
+
+# > Playrix
+playrix.com
+full:playrix.helpshift.com
 
 # > Pokemon Go
 nianticlabs.com
 pokemongolive.com
 full:niantic.helpshift.com
 
-# > Playrix
-playrix.com
-full:playrix.helpshift.com
+# > Punishing Gray Raven
+full:pgr.kurogame.net
 
 # > Supercell
 supercell.com
@@ -141,6 +179,13 @@ full:supercell.helpshift.com
 # > Take2Games
 take2games.com
 
+# > TapTap
+tap.io
+taptap.io
+tapapis.cn
+tapapis.com
+keyword:tapapis
+
 # > Unity3d
 unity3d.com
 
@@ -148,6 +193,12 @@ unity3d.com
 wargaming.com
 wargaming.net
 worldoftanks.com
+
+# > XD
+xd.com
+t3.xd.com
+xindong.com
+keyword:matchserver
 
 # > X.D. Global
 xdg.com
@@ -159,6 +210,7 @@ yongshigame.com
 yo-star.com
 yostar.store
 yostarplat.com
+keyword:yostar
 
 # > Zynga
 zynga.com
@@ -181,8 +233,11 @@ keyword:devmgapex
 
 # > Konami
 konami.net
+konamionline.com
+konami-efootball.com
 applilink.jp
 keyword:konami
+keyword:efootball
 
 # > Growtopia
 growtopia1.com
@@ -193,7 +248,7 @@ keyword:growtopia
 # > Arknights (com.YoStarEN.Arknights)
 arknights.global
 
-# Stumble Guys (com.kitkagames.fallbuddies)
+# > Stumble Guys (com.kitkagames.fallbuddies)
 kitkagames.com
 stumbleguys.com
 exitgames.com
@@ -207,11 +262,9 @@ changwutuan.com
 170u.com
 
 # > Tower of Fantasy (com.levelinfinite.hotta.gp)
-intlgame.com
 toweroffantasy-global.com
 centauriglobal.com
 api.globalgme.com
-keyword:intlgame
 
 # > Auto Chess (com.dragonest.autochess.google)
 dragonest.com
@@ -227,11 +280,6 @@ full:cdn.wetest.qq.com
 full:hsg.tdm.qq.com
 keyword:codm
 
-# > Anti Cheat Expert (Tencent Games)
-anticheatexpert.com
-full:asia.csoversea.mbgame.anticheatexpert.com
-keyword:anticheatexpert
-
 # > Arena of Valor (com.garena.game.kgid)
 kg.garena.co.id
 midas.garena.co.id
@@ -242,3 +290,34 @@ live.qcloud.com
 full:cloud2.gsdk.proximabeta.com
 keyword:kgid
 keyword:aovtv
+
+# > Honor of Kings (com.levelinfinite.sgameGlobal)
+honorofkings.com
+iegcom.com
+i.gtimg.cn
+sgameglobal.com
+singaporepaya.com
+smoba.qq.com
+full:atm-broker-tcp-hok.vasdgame.com
+full:dlied5.qq.com
+full:r.sdaswq.com
+keyword:hok
+keyword:globalconnetct
+keyword:sgameglobal
+
+# > RPG Toram Online (com.asobimo.toramonline)
+asobimo.com
+toram.jp
+full:toram-jp.akamaized.net
+keyword:asb
+keyword:asbpush
+keyword:asobimo
+keyword:iruna
+keyword:toram
+
+# > Aether Gazer (com.YoStar.AetherGazer)
+aethergazer.com
+
+# > Wuthering Waves (com.kurogame.wutheringwaves.global)
+full:wutheringwaves.kurogames.com
+aki-game.net

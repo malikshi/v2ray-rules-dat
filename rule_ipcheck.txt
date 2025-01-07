@@ -1,11 +1,11 @@
 include:test-ipv6
 include:ipip
 
-domains.google.com
-ipv4.google.com
-ipv6test.google.com
-ds.metric.gstatic.com
-v4.metric.gstatic.com
+full:domains.google.com
+full:ipv4.google.com
+full:ipv6test.google.com
+full:ds.metric.gstatic.com
+full:v4.metric.gstatic.com
 
 speedtest6.com
 ipify.org
@@ -91,9 +91,11 @@ ipconfig.in
 strongleakstest.com
 dns-leak.com
 dnsleaktest.org
+nordvpn.com
 
-#keyword
+# Keyword
 keyword:whatismyip
+keyword:whatismyisp
 keyword:iplocation
 keyword:myip
 keyword:ipapi
