@@ -5,6 +5,7 @@ include:hotstar
 include:netflix
 include:spotify
 include:viu
+include:bilibili
 
 # > Bein Sport
 beinsports.com
@@ -24,6 +25,7 @@ keyword:livetvgo
 
 # > Loklok
 loklok.plus
+keyword:loklok
 
 # > MNC Now
 mncnow.id
