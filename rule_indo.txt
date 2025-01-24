@@ -168,6 +168,7 @@ keyword:zalora
 
 # E-Wallet / Dompet Digital
 gojek.com
+gopay.com
 gobiz.co.id
 ovo.id
 dana.id
@@ -179,6 +180,7 @@ shopeepay.co.id
 grab.com
 grabtaxi.com
 keyword:gojek
+keyword:gopay
 keyword:gobiz
 keyword:ovo
 keyword:dana
@@ -189,6 +191,17 @@ keyword:doku
 keyword:shopeepay
 keyword:grab
 keyword:grabtaxi
+
+# Provider
+ioh.co.id
+tri.co.id
+xlaxiata.co.id
+axis.co.id
+byu.id
+telkomsel.com
+myorbit.id
+xl.co.id
+smartfren.com
 
 # > LIST Domain tLD Indo & GEOIP INDO
 id
