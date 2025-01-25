@@ -92,6 +92,13 @@ strongleakstest.com
 dns-leak.com
 dnsleaktest.org
 nordvpn.com
+browserleaks.org
+ipv6-test.com
+whoer.net
+ipbase.com
+criminalip.io
+ipapi.is
+ipdata.io
 
 # Keyword
 keyword:whatismyip
@@ -107,3 +114,12 @@ keyword:geoapi
 keyword:dnsleak
 keyword:dnschecker
 keyword:dns-leak
+keyword:browserleaks
+keyword:ipcheck
+keyword:ipfinder
+keyword:iplookup
+keyword:iptracker
+keyword:ipverify
+keyword:ipgeo
+keyword:ipstatus
+keyword:ipdetect
