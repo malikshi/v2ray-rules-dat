@@ -99,6 +99,7 @@ ipbase.com
 criminalip.io
 ipapi.is
 ipdata.io
+ipaddress.my
 
 # Keyword
 keyword:whatismyip
@@ -123,3 +124,4 @@ keyword:ipverify
 keyword:ipgeo
 keyword:ipstatus
 keyword:ipdetect
+keyword:ipaddress
