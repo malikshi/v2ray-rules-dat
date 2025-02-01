@@ -22,3 +22,7 @@ full:conn2.oppomobile.com
 full:quasar.yandex.net
 full:captive.apple.com
 full:connectivity-check.ubuntu.com
+full:connectivitycheck.unisoc.com
+full:play.googleapis.com
+keyword:connectivitycheck
+keyword:connectivity-check
