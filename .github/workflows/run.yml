@@ -89,8 +89,8 @@ jobs:
 
       - name: Get geoip.dat relative files
         run: |
-          wget --fail https://github.com/malikshi/geoip/raw/release/geoip.dat
-          wget --fail https://github.com/malikshi/geoip/raw/release/geoip.dat.sha256sum
+          curl -fsSLO https://github.com/malikshi/geoip/raw/release/geoip.dat
+          curl -fsSLO https://github.com/malikshi/geoip/raw/release/geoip.dat.sha256sum
 
       - name: Generate GFWList domains
         run: |
@@ -206,34 +206,34 @@ jobs:
           curl -fsSL $RULE_ADS_EXTENDED >> rule-ads.txt
           curl -fsSL $OISD_NSFW | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > ./community/data/oisd-nsfw
           curl -fsSL $OISD_NSFW | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > oisd-nsfw.txt
-          wget --fail -O ./community/data/antiscam $ANTISCAM
-          wget --fail -O antiscam.txt $ANTISCAM
-          wget --fail -O ./community/data/rule-doh $DOH_DNS
-          wget --fail -O rule-doh.txt $DOH_DNS
-          wget --fail -O ./community/data/rule-gaming $RULE_GAME
-          wget --fail -O rule-gaming.txt $RULE_GAME
-          wget --fail -O ./community/data/rule-indo $RULE_INDO
-          wget --fail -O rule-indo.txt $RULE_INDO
-          wget --fail -O ./community/data/rule-playstore $RULE_PS
-          wget --fail -O rule-playstore.txt $RULE_PS
-          wget --fail -O ./community/data/rule-sosmed $RULE_SOSMED
-          wget --fail -O rule-sosmed.txt $RULE_SOSMED
-          wget --fail -O ./community/data/rule-streaming $RULE_STREAMING
-          wget --fail -O rule-streaming.txt $RULE_STREAMING
-          wget --fail -O ./community/data/rule-umum $RULE_UMUM
-          wget --fail -O rule-umum.txt $RULE_UMUM
-          wget --fail -O ./community/data/rule-ipcheck $RULE_IPCHECK
-          wget --fail -O rule-ipcheck.txt $RULE_IPCHECK
-          wget --fail -O ./community/data/videoconference $RULE_VIDCONFERENCE
-          wget --fail -O videoconference.txt $RULE_VIDCONFERENCE
-          wget --fail -O ./community/data/urltest $URLTEST
-          wget --fail -O urltest.txt $URLTEST
-          wget --fail -O ./community/data/rule-speedtest $RULE_SPEEDTEST
-          wget --fail -O rule-speedtest.txt $RULE_SPEEDTEST
-          wget --fail -O ./community/data/rule-malicious $MALICIOUS_HOST
-          wget --fail -O rule-malicious.txt $MALICIOUS_HOST
-          wget --fail -O ./community/data/bank-id $RULE_BANK_ID
-          wget --fail -O bank-id.txt $RULE_BANK_ID
+          curl -fsSL -o ./community/data/antiscam $ANTISCAM
+          curl -fsSL -o antiscam.txt $ANTISCAM
+          curl -fsSL -o ./community/data/rule-doh $DOH_DNS
+          curl -fsSL -o rule-doh.txt $DOH_DNS
+          curl -fsSL -o ./community/data/rule-gaming $RULE_GAME
+          curl -fsSL -o rule-gaming.txt $RULE_GAME
+          curl -fsSL -o ./community/data/rule-indo $RULE_INDO
+          curl -fsSL -o rule-indo.txt $RULE_INDO
+          curl -fsSL -o ./community/data/rule-playstore $RULE_PS
+          curl -fsSL -o rule-playstore.txt $RULE_PS
+          curl -fsSL -o ./community/data/rule-sosmed $RULE_SOSMED
+          curl -fsSL -o rule-sosmed.txt $RULE_SOSMED
+          curl -fsSL -o ./community/data/rule-streaming $RULE_STREAMING
+          curl -fsSL -o rule-streaming.txt $RULE_STREAMING
+          curl -fsSL -o ./community/data/rule-umum $RULE_UMUM
+          curl -fsSL -o rule-umum.txt $RULE_UMUM
+          curl -fsSL -o ./community/data/rule-ipcheck $RULE_IPCHECK
+          curl -fsSL -o rule-ipcheck.txt $RULE_IPCHECK
+          curl -fsSL -o ./community/data/videoconference $RULE_VIDCONFERENCE
+          curl -fsSL -o videoconference.txt $RULE_VIDCONFERENCE
+          curl -fsSL -o ./community/data/urltest $URLTEST
+          curl -fsSL -o urltest.txt $URLTEST
+          curl -fsSL -o ./community/data/rule-speedtest $RULE_SPEEDTEST
+          curl -fsSL -o rule-speedtest.txt $RULE_SPEEDTEST
+          curl -fsSL -o ./community/data/rule-malicious $MALICIOUS_HOST
+          curl -fsSL -o rule-malicious.txt $MALICIOUS_HOST
+          curl -fsSL -o ./community/data/bank-id $RULE_BANK_ID
+          curl -fsSL -o bank-id.txt $RULE_BANK_ID
 
       - name: Filter and save d3ward.txt
         run: |
@@ -272,7 +272,7 @@ jobs:
 
       - name: Convert to Sing-Box geoassets
         run: |
-          wget --fail https://github.com/malikshi/Notes/releases/download/v2box/v2box
+          curl -fsSLO https://github.com/malikshi/Notes/releases/download/v2box/v2box
           chmod +x v2box
           ./v2box migrate geoip -i ./publish/geoip.dat -o geoip.db
           ./v2box migrate geosite -i ./publish/geosite.dat -o geosite.db
